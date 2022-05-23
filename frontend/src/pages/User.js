@@ -7,3 +7,8 @@ export default class User extends Component {
     )
   }
 }
+
+
+    // componentDidMount(){
+    //     //implement user cv import here 
+    // }

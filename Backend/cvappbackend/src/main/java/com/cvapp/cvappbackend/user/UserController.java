@@ -28,7 +28,7 @@ public class UserController {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiError handleValidationException(MethodArgumentNotValidException exception) {
-        ApiError apiError = new ApiError(400, "Null value received", "/api/1.0/users");
+        ApiError apiError = new ApiError(400, "Null value received", "/api/1.0/auth");
         Map<String, String> validationErrors = new HashMap<>();
         for (FieldError fieldError : exception.getBindingResult().getFieldErrors()) {
             validationErrors.put(fieldError.getField(), fieldError.getDefaultMessage());

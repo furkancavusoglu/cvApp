@@ -7,8 +7,10 @@ class LoginPage extends Component {
         username: null,
         password: null,
         pendingApiCall: false,
-        errors: {}
+        errors: {},
+        auth: null
     };
+
 
     onChange = (event) => {
         const { name, value } = event.target;
@@ -16,7 +18,8 @@ class LoginPage extends Component {
         errors[name] = undefined;
         this.setState({
             [name]: value,
-            errors
+            errors,
+            auth: null
         });
     };
 
@@ -31,25 +34,30 @@ class LoginPage extends Component {
 
         try {
             const response = await login(body);
-        } catch (error) {
-            if (error.response.data.validationErrors) {
-                this.setState({ errors: error.response.data.validationErrors });
+        } catch (apiError) {
+            if (apiError.response.data.validationErrors) {
+                this.setState({ errors: apiError.response.data.validationErrors });
+            }
+            if (apiError.response.data.message === "Unauthorized request") {
+                this.setState({ auth: apiError.response.data.message });
             }
         }
         this.setState({ pendingApiCall: false });
     };
 
     render() {
-        const { pendingApiCall, errors } = this.state;
+        const { pendingApiCall, errors, auth } = this.state;
         const { username, password } = errors;
+        const buttonEnabled = this.state.username && this.state.password;
         return (<div>
             <div className="container">
                 <form>
                     <h1 className="text-center">Login</h1>
                     <Input name="username" label="Username" error={username} onChange={this.onChange} />
                     <Input name="password" label="Password" error={password} onChange={this.onChange} type="password" />
+                    {auth && <div className="alert alert-danger">{auth}</div>}
                     <div>
-                        <button className="btn btn-primary" onClick={this.onClickLogin} disabled={pendingApiCall}>Login</button>
+                        <button className="btn btn-primary" onClick={this.onClickLogin} disabled={pendingApiCall || !buttonEnabled}>Login</button>
                     </div>
                 </form>
             </div>
