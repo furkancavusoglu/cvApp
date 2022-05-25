@@ -2,8 +2,12 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
 export default class NavBar extends Component {
+    state = {
+        isLoggedIn: false
+    };
+
     render() {
-        let isLoggedIn = true;
+        const {isLoggedIn} = this.state;
 
         let links;
         if (!isLoggedIn) {
@@ -19,7 +23,7 @@ export default class NavBar extends Component {
         }
         return (
             <div className="shadow-sm bg-light mb-2">
-                <nav className="navbar navbar-light container navbar-expand">
+                <nav className="navbar navbar-light container">
                     CV App {links}
                 </nav>
             </div>

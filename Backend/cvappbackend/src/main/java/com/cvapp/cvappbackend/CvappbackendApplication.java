@@ -8,6 +8,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @SpringBootApplication
 public class CvappbackendApplication {
 
@@ -18,14 +21,13 @@ public class CvappbackendApplication {
     @Bean
     CommandLineRunner createInitialUsers(UserService userService) {
         return (args) -> {
-            User user = new User();
-            user.setUsername("user1");
-            user.setPassword("user1");
-            User user2 = new User();
-            user2.setUsername("user2");
-            user2.setPassword("user2");
-            userService.save(user);
-            userService.save(user2);
+            for(int i=0;i<3;i++){
+                User user = new User();
+                user.setUsername("user"+i);
+                user.setPassword("user1");
+                userService.save(user);
+            }
+
         };
     }
 
