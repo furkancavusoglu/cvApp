@@ -1,15 +1,11 @@
 package com.cvapp.cvappbackend;
 
 import com.cvapp.cvappbackend.user.User;
-import com.cvapp.cvappbackend.user.UserRepository;
 import com.cvapp.cvappbackend.user.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @SpringBootApplication
 public class CvappbackendApplication {
@@ -25,9 +21,19 @@ public class CvappbackendApplication {
                 User user = new User();
                 user.setUsername("user"+i);
                 user.setPassword("user1");
+                user.setExperiences("None");
+                user.setName("Furkan Cavusoglu");
+                user.setPhoneNumber("+905312548");
+                user.setSkills("java");
+                user.setSchool("Estü");
+                user.setAdmin(false);
                 userService.save(user);
             }
-
+            User user2 = new User();
+            user2.setUsername("admin");
+            user2.setPassword("admin");
+            user2.setAdmin(true);
+            userService.save(user2);
         };
     }
 

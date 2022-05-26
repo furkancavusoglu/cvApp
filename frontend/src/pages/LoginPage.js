@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { login } from "../api/apiCalls";
 import Input from "../components/Input";
+import User from "./User";
 import { useNavigate } from "react-router-dom";
 class LoginPage extends Component {
     state = {
@@ -36,6 +37,7 @@ class LoginPage extends Component {
             await login(body);
             let history = useNavigate();
             history.push("/user");
+
         } catch (apiError) {
             if (apiError.response.data.validationErrors) {
                 console.log(apiError);
@@ -49,9 +51,10 @@ class LoginPage extends Component {
     };
 
     render() {
-        const { pendingApiCall, errors, auth } = this.state;
+        const { pendingApiCall, errors, auth, user } = this.state;
         const { username, password } = errors;
         const buttonEnabled = this.state.username && this.state.password;
+        console.log(user);
         return (<div>
             <div className="container">
                 <form>

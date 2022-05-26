@@ -22,4 +22,19 @@ public class UserService {
     public List<User> getUsers() {
         return userRepository.findAll();
     }
+
+    public User getByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+
+    public User updateUser(String username, UserUpdate userUpdate) {
+        User inDb = getByUsername(username);
+        inDb.setName(userUpdate.getName());
+        inDb.setExperiences(userUpdate.getExperiences());
+        inDb.setSkills(userUpdate.getSkills());
+        inDb.setSchool(userUpdate.getSchool());
+        userRepository.save(inDb);
+        return inDb;
+    }
 }

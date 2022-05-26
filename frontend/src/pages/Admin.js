@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
+import UserList from '../components/UserList';
 
 export default class Admin extends Component {
+
   render() {
     return (
-      <div>Admin</div>
+      <div className="container">
+        <UserList />
+      </div>
     )
   }
 }
