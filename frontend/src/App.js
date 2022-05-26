@@ -20,6 +20,7 @@ class App extends Component {
             <Route path="login" element={<LoginPage />} />
             <Route path="admin" element={<Admin />} />
             <Route path="user/:username" element={<User />} />
+            <Route path="user" element={<User />} />
           </Routes>
         </Router>
       </div>
