@@ -1,2 +1,3 @@
 # cvApp
-Cv publishing app
+
+Cv güncelleme ve görüntüleme uygulaması
