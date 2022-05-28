@@ -7,10 +7,6 @@ import User from './pages/User';
 import React, { Component } from "react";
 
 class App extends Component {
-  state = {
-    user: {}
-  }
-
   render() {
     return (
       <div className="ui container">

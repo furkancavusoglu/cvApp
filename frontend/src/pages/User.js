@@ -7,6 +7,7 @@ import { updateUser } from '../api/apiCalls';
 const User = () => {
   const [user, setUser] = useState();
   const { username } = useParams();
+  const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
     console.log(user);
@@ -41,6 +42,8 @@ const User = () => {
     };
     try {
       await updateUser(username, body);
+      setIsSuccess(true);
+
     } catch (error) {
       console.log(error);
     }
@@ -52,10 +55,23 @@ const User = () => {
       <div className="card text-center">
         <div className='form'>
           <Input name="name" label={"Name"} className="name" onChange={onChange} />
-          <Input name="phoneNumber" label={"Phone Number "} className="phoneNumber" onChange={onChange} />
+          <Input name="phoneNumber" label={"Phone Number "} className="phoneNumber" onChange={onChange} type="number" />
           <Input name="school" label={"School"} className="school" onChange={onChange} />
           <Input name="experiences" label={"Experiences "} className="experiences" onChange={onChange} />
           <Input name="skills" label={"Skills"} className="skills" onChange={onChange} />
+          {user &&
+            <div className="alert alert-info">
+              <div className='card'>
+                <ul>
+                  <li>Name: {user.name}</li>
+                  <li> Experiences: {user.experiences}</li>
+                  <li> Phone Number: {user.phoneNumber}</li>
+                  <li>School: {user.school}</li>
+                  <li> Skills: {user.skills}</li>
+                </ul>
+              </div>
+            </div>}
+            {isSuccess && <div className="alert alert-success">Edit Successful </div>}
         </div>
         <button className='btn btn-success' onClick={onClickSave}>Edit</button>
       </div>

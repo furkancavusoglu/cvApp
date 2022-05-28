@@ -26,6 +26,7 @@ public class CvappbackendApplication {
                 user.setPhoneNumber("+905312548");
                 user.setSkills("java");
                 user.setSchool("Estü");
+                user.setEmail("abc@outlook.com");
                 user.setAdmin(false);
                 userService.save(user);
             }

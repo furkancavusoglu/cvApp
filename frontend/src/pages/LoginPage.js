@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { login } from "../api/apiCalls";
 import Input from "../components/Input";
-import User from "./User";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, createSearchParams } from "react-router-dom";
 class LoginPage extends Component {
     state = {
         username: null,
@@ -35,8 +34,13 @@ class LoginPage extends Component {
 
         try {
             await login(body);
-            let history = useNavigate();
-            history.push("/user");
+            let navigate = useNavigate();
+            navigate({
+                pathname: "/user",
+                search: createSearchParams({
+                    username: username
+                }).toString()
+            });
 
         } catch (apiError) {
             if (apiError.response.data.validationErrors) {
