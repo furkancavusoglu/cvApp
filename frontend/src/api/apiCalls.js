@@ -1,5 +1,7 @@
 import axios from "axios"
 
+// database'e gönderilecek komutlar için kullanılan fonksiyonlar.
+
 export const login = (body) => {
     return axios.post("/api/1.0/auth", body);
 };

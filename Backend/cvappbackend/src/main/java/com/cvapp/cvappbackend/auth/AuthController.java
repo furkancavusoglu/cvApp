@@ -3,7 +3,6 @@ package com.cvapp.cvappbackend.auth;
 import com.cvapp.cvappbackend.error.ApiError;
 import com.cvapp.cvappbackend.user.User;
 import com.cvapp.cvappbackend.user.UserRepository;
-import org.apache.catalina.authenticator.BasicAuthenticator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +13,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
+
+/*
+* Kullanıcıdan gelen null değerleri ve authentication'u sağlayan sınıf
+*
+* */
 
 @RestController
 public class AuthController {

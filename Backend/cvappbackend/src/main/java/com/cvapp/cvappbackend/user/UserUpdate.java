@@ -2,6 +2,8 @@ package com.cvapp.cvappbackend.user;
 
 import lombok.Data;
 
+// Kullanıcı güncellerken kullanılan sınıf (id, username,password değerlerini tekrar girmemek için)
+
 @Data
 public class UserUpdate {
 

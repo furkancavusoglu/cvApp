@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
+
+// LoginPage e yönledirebilen bir navigation bar componentidir.
 export default class NavBar extends Component {
     state = {
         isLoggedIn: false

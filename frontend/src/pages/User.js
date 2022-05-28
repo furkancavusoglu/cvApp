@@ -4,6 +4,12 @@ import { useParams } from "react-router-dom";
 import Input from '../components/Input';
 import { updateUser } from '../api/apiCalls';
 
+/*
+*   Database'den parametrede {/user/{username}} belirtilen kullanıcı adıyla kullanıcı bilgilerini çeker.
+*   Kullanıcı bilgilerini güncelleyip database e gönderir.
+*   oluşturulan kullanıcılar {user1:user1} {user2:user2}
+*/
+
 const User = () => {
   const [user, setUser] = useState();
   const { username } = useParams();

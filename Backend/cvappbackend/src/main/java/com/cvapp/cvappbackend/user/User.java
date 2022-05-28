@@ -1,10 +1,14 @@
 package com.cvapp.cvappbackend.user;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
+/*
+*   Veritabanında kullanıcıyı temsil eden sınıf
+*
+* */
 
 @Data
 @Entity
@@ -19,6 +23,7 @@ public class User {
     @NotNull
     private String password;
 
+    // login sayfasından den kullanıcı sayfasına geçemediğim için bu değişkenin bir önemi yok
     private boolean isAdmin;
 
     private String name;

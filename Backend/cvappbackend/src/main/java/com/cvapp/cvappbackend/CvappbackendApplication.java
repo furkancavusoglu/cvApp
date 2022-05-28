@@ -14,27 +14,22 @@ public class CvappbackendApplication {
         SpringApplication.run(CvappbackendApplication.class, args);
     }
 
+    //Program başlanıgında kullanıcı üretir.
     @Bean
     CommandLineRunner createInitialUsers(UserService userService) {
         return (args) -> {
-            for(int i=0;i<3;i++){
+            for(int i=1;i<3;i++){
                 User user = new User();
                 user.setUsername("user"+i);
-                user.setPassword("user1");
+                user.setPassword("user"+i);
                 user.setExperiences("None");
                 user.setName("Furkan Cavusoglu");
-                user.setPhoneNumber("+905312548");
+                user.setPhoneNumber("+905555555555");
                 user.setSkills("java");
-                user.setSchool("Estü");
+                user.setSchool("Eskisehir Technical University");
                 user.setEmail("abc@outlook.com");
-                user.setAdmin(false);
                 userService.save(user);
             }
-            User user2 = new User();
-            user2.setUsername("admin");
-            user2.setPassword("admin");
-            user2.setAdmin(true);
-            userService.save(user2);
         };
     }
 

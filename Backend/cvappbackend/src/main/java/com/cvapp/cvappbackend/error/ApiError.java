@@ -1,9 +1,10 @@
 package com.cvapp.cvappbackend.error;
 
 import lombok.Data;
-
 import java.util.Date;
 import java.util.Map;
+
+// Custom error sınıfı
 
 @Data
 public class ApiError {

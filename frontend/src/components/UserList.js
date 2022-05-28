@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { getUsers } from '../api/apiCalls';
 
+// Admin componentinde kullanılan kullanıcıları listeleyen componenttir.
+
 export default class UserList extends Component {
     state = {
         users: []

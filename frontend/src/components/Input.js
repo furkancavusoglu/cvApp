@@ -1,5 +1,10 @@
 import React from 'react'
 
+/*
+*   Html input tag inin app için customize edilmiş versiyonu olan bir component tir.
+*
+*/
+
 const Input = (props) => {
     const { label, error, name, onChange, type, defaultValue } = props;
     const className = error ? "form-control is-invalid" : "form-control";

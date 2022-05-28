@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import { login } from "../api/apiCalls";
 import Input from "../components/Input";
 import { useNavigate, createSearchParams } from "react-router-dom";
+
+/*  Giriş sayfası bileşenidir.
+*   Admin ve User sayfalarına yönlendirir.
+*   (useNavigate çalışmıyor durumu mail atarak ilettim fakat geri dönüş alamadım.)
+*
+*/
 class LoginPage extends Component {
     state = {
         username: null,
